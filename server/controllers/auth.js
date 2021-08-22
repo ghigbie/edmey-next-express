@@ -1,4 +1,5 @@
 export const register = (req, res, next) => {
-    res.send("login user response");
+    console.log('BODY:', req.body);
+    res.json("login user response");
 };
 

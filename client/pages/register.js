@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import axios from 'axios';
 import Header from '../components/Header';
 import styled from 'styled-components';
 
@@ -8,13 +9,19 @@ const SubmitButton = styled.input`
 
 
 const register = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [name, setName] = useState('Test USER');
+    const [email, setEmail] = useState('tes@test.com');
+    const [password, setPassword] = useState('test');
 
-    const handleOnSubmit = e => {
+    const handleOnSubmit = async (e) => {
         e.preventDefault();
         console.table({ name, email, password});
+        const {data} = await axios.post(`http://localhost:8000/api/register`, {
+            name,
+            email,
+            password
+        });
+        console.table("REGISTER RESPONSE", data);
     };
 
     return (
