@@ -1,9 +1,8 @@
 import express from 'express';
+import { register } from 'register';
 
 const router = express.Router();
 
-router.get('/register', (req, res, next) => {
-    res.send('register user')
-});
+router.post('/register', register );
 
 module.exports = router;
