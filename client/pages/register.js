@@ -3,9 +3,11 @@ import axios from 'axios';
 import Header from '../components/Header';
 import styled from 'styled-components';
 
-const SubmitButton = styled.input`
+const SubmitButton = styled.input.attrs(() => ({
+  className: 'btn btn-block btn-primary',
+}))`
     width: 100%;
-`
+`;
 
 
 const register = () => {
@@ -56,9 +58,10 @@ const register = () => {
                         placeholder="Enter password"
                     />
 
-                    <SubmitButton
-                        type="submit"
-                        className="btn btn-block btn-primary"
+                    <input
+                        type="submit" 
+                        className='btn btn-block btn-primary'
+                        style={{ width: '100%'}}
                     />
                     
                 </form>
