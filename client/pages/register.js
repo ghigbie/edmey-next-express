@@ -12,8 +12,8 @@ const SubmitButton = styled.input.attrs(() => ({
 
 const register = () => {
     const [name, setName] = useState('Test USER');
-    const [email, setEmail] = useState('tes@test.com');
-    const [password, setPassword] = useState('test');
+    const [email, setEmail] = useState('testesttest@test.com');
+    const [password, setPassword] = useState('testtesttest');
 
     const handleOnSubmit = async (e) => {
         e.preventDefault();
