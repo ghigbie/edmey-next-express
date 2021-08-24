@@ -2,6 +2,7 @@ import {useState} from 'react';
 import axios from 'axios';
 import Header from '../components/Header';
 import styled from 'styled-components';
+import {toast} from 'react-toastify';
 
 const SubmitButton = styled.input.attrs(() => ({
   className: 'btn btn-block btn-primary',
@@ -17,14 +18,20 @@ const register = () => {
 
     const handleOnSubmit = async (e) => {
         e.preventDefault();
-        console.table({ name, email, password});
-        const {data} = await axios.post(`http://localhost:8000/api/register`, {
-            name,
-            email,
-            password
-        });
-        console.table("REGISTER RESPONSE", data);
+        try{
+            const {data} = await axios.post(`http://localhost:8000/api/register`, {
+                name,
+                email,
+                password
+            });
+            console.table("REGISTER RESPONSE", data);
+            toast.success('Registration successful. Please login');
+        }catch(err){
+            toast.error(err.response.data);
+        }
     };
+
+    toast.success()
 
     return (
         <>
